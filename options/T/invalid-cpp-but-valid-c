@@ -1,0 +1,4 @@
+int main () {
+    int new = 42;
+    return new;
+}
