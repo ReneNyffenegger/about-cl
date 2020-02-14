@@ -1,15 +1,10 @@
-
-#
-#  Apparently, the /DEBUG flag is essential for the linker
-#  to produce symbol files.
-#
 prog.exe: main.obj func.obj
 	@link $^ /out:$@ /DEBUG
 
-func.obj: func.c func.h Makefile
+func.obj: func.c func.h
 	@cl -Zi -c $< -Fd:$(basename $@).pdb
 
-main.obj: main.c func.h Makefile
+main.obj: main.c func.h
 	@cl -Zi -c $< -Fd:$(basename $@).pdb
 
 clean:
